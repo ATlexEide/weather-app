@@ -128,7 +128,7 @@ function drawInfoContainer(containingFunction, data) {
     const div = document.createElement('div');
     div.id = 'info-container';
 
-    drawCityInfo(div, data);
+    drawLocationInfo(div, data);
     drawWeatherInfo(div, data);
     containingFunction.appendChild(div);
 };
@@ -136,18 +136,18 @@ function drawInfoContainer(containingFunction, data) {
 //
 // City Info
 //
-function drawCityInfo(containingFunction, data) {
+function drawLocationInfo(containingFunction, data) {
     const div = document.createElement('div');
     div.id = 'city-info'
 
-    drawCityDetails(div, data);
+    drawLocationDetails(div, data);
     containingFunction.appendChild(div);
 };
 
 //
 // City Details
 //
-function drawCityDetails(containingFunction, data) {
+function drawLocationDetails(containingFunction, data) {
     // Container
     const name = document.createElement('div');
     name.id = 'city-name';
