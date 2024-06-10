@@ -1,18 +1,11 @@
-const body = document.body;
+export const body = document.body;
 const placeholderText = 'placeholder';
 
-
-export function display(data) {
-    // Display all elements
-    drawHeader();
-    drawMainContainer(data);
-    drawFooter();
-};
 
 //
 // Header
 //
-function drawHeader() {
+export function drawHeader() {
     // Header
     const header = document.createElement('header');
     // H1
@@ -27,7 +20,7 @@ function drawHeader() {
 //
 // Main container
 //
-function drawMainContainer(data) {
+export function drawMainContainer(data) {
     // Container
     const div = document.createElement('div');
     div.id = 'main-container';
@@ -41,7 +34,7 @@ function drawMainContainer(data) {
 //
 // Footer
 //
-function drawFooter() {
+export function drawFooter() {
     // Footer
     const footer = document.createElement('footer');
     footer.textContent = 'A TOP Project';
@@ -149,15 +142,21 @@ function drawLocationInfo(containingFunction, data) {
 //
 function drawLocationDetails(containingFunction, data) {
     // Container
-    const name = document.createElement('div');
-    name.id = 'city-name';
-    name.textContent = data.location.city;
+    const city = document.createElement('div');
+    city.id = 'city';
+    city.textContent = data.location.city;
+    const country = document.createElement('div');
+    country.id = 'country';
+    country.textContent = data.location.country;
     const time = document.createElement('div');
     time.id = 'time';
-    time.textContent = data.location.local_time;
+    const d = new Date(0);
+    d.setUTCSeconds(data.location.local_time_epoch)
+    time.textContent = `${d.getHours()}:${d.getMinutes()}`;
 
     // Appending
-    containingFunction.appendChild(name);
+    containingFunction.appendChild(city);
+    containingFunction.appendChild(country);
     containingFunction.appendChild(time);
 };
 
