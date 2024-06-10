@@ -2,10 +2,10 @@ const body = document.body;
 const placeholderText = 'placeholder';
 
 
-export function display() {
+export function display(data) {
     // Display all elements
     drawHeader();
-    drawMainContainer();
+    drawMainContainer(data);
     drawFooter();
 };
 
@@ -27,11 +27,11 @@ function drawHeader() {
 //
 // Main container
 //
-function drawMainContainer() {
+function drawMainContainer(data) {
     // Container
     const div = document.createElement('div');
     div.id = 'main-container';
-    drawInfoContainer(div);
+    drawInfoContainer(div, data);
     drawInputForm(div);
 
     // Append
@@ -123,38 +123,38 @@ function drawUnitSelector(containingFunction) {
 //
 // Info Container
 //
-function drawInfoContainer(containingFunction) {
+function drawInfoContainer(containingFunction, data) {
     // Info container
     const div = document.createElement('div');
     div.id = 'info-container';
 
-    drawCityInfo(div);
-    drawWeatherInfo(div);
+    drawCityInfo(div, data);
+    drawWeatherInfo(div, data);
     containingFunction.appendChild(div);
 };
 
 //
 // City Info
 //
-function drawCityInfo(containingFunction) {
+function drawCityInfo(containingFunction, data) {
     const div = document.createElement('div');
     div.id = 'city-info'
 
-    drawCityDetails(div);
+    drawCityDetails(div, data);
     containingFunction.appendChild(div);
 };
 
 //
 // City Details
 //
-function drawCityDetails(containingFunction) {
+function drawCityDetails(containingFunction, data) {
     // Container
     const name = document.createElement('div');
     name.id = 'city-name';
-    name.textContent = placeholderText;
+    name.textContent = data.location.city;
     const time = document.createElement('div');
     time.id = 'time';
-    time.textContent = placeholderText;
+    time.textContent = data.location.local_time;
 
     // Appending
     containingFunction.appendChild(name);
@@ -164,12 +164,12 @@ function drawCityDetails(containingFunction) {
 //
 // Weather info
 //
-function drawWeatherInfo(containingFunction) {
+function drawWeatherInfo(containingFunction, data) {
     const weatherContainer = document.createElement('div');
     weatherContainer.id = 'weather-info';
     const divCity = document.createElement('div');
     divCity.id = 'city-info';
-    drawWeatherDetails(weatherContainer);
+    drawWeatherDetails(weatherContainer, data);
     drawGraph(weatherContainer);
     containingFunction.appendChild(weatherContainer);
 };
@@ -177,7 +177,7 @@ function drawWeatherInfo(containingFunction) {
 //
 // Weather Details
 //
-function drawWeatherDetails(containingFunction) {
+function drawWeatherDetails(containingFunction, data) {
     // Container
     const container = document.createElement('div');
     container.id = 'weather-details';
@@ -189,7 +189,7 @@ function drawWeatherDetails(containingFunction) {
     labelTemp.textContent = 'Temperature:';
     const spanTemp = document.createElement('span');
     spanTemp.id = 'temp';
-    spanTemp.textContent = placeholderText;
+    spanTemp.textContent = data.metric.temp;
     divTemp.appendChild(labelTemp);
     divTemp.appendChild(spanTemp);
 
@@ -211,26 +211,26 @@ function drawWeatherDetails(containingFunction) {
     labelHumidity.textContent = 'Humidity:';
     const spanHumidity = document.createElement('span');
     spanHumidity.id = 'humidity';
-    spanHumidity.textContent = placeholderText;
+    spanHumidity.textContent = data.humidity;
     divHumidity.appendChild(labelHumidity);
     divHumidity.appendChild(spanHumidity);
 
     // Windage
-    const divWindage = document.createElement('div');
-    const labelWindage = document.createElement('label');
-    labelWindage.setAttribute('for', 'windage');
-    labelWindage.textContent = 'Windage:';
+    const divWind = document.createElement('div');
+    const labelWind = document.createElement('label');
+    labelWind.setAttribute('for', 'wind');
+    labelWind.textContent = 'Wind:';
     const spanWindage = document.createElement('span');
-    spanWindage.id = 'windage';
-    spanWindage.textContent = placeholderText;
-    divWindage.appendChild(labelWindage);
-    divWindage.appendChild(spanWindage);
+    spanWindage.id = 'wind';
+    spanWindage.textContent = data.metric.wind + data.metric.windUnit + ' ' + data.wind_dir;
+    divWind.appendChild(labelWind);
+    divWind.appendChild(spanWindage);
 
     // Main Appending
     containingFunction.appendChild(divTemp);
     containingFunction.appendChild(divRainfall);
     containingFunction.appendChild(divHumidity);
-    containingFunction.appendChild(divWindage);
+    containingFunction.appendChild(divWind);
 };
 
 //

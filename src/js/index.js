@@ -1,6 +1,5 @@
 import '../css/style.css';
 import { display } from './dom';
-display();
 
 const API_KEY = '72f920ddfbf143c9ac1164854240606';
 const LOCATION = 'bergen'
@@ -20,18 +19,24 @@ async function fetchWeatherData(API_KEY = '72f920ddfbf143c9ac1164854240606', LOC
             local_time: dataJSON.location.localtime,
             local_time_epoch: dataJSON.location.localtime_epoch,
         },
-        celcius: {
-            temperature: dataJSON.current.temp_c,
+        metric: {
+            temp: dataJSON.current.temp_c,
             feelsLike: dataJSON.current.feelslike_c,
+            wind: dataJSON.current.wind_kph,
+            windUnit: 'KPH',
         },
-        fahrenheit: {
-            temperature: dataJSON.current.temp_f,
+        imperial: {
+            temp: dataJSON.current.temp_f,
             feelsLike: dataJSON.current.feelslike_f,
+            wind: dataJSON.current.wind_mph,
         },
+        humidity: dataJSON.current.humidity,
+        wind_dir: dataJSON.current.wind_dir,
     };
     return data;
 };
 
-const dataObject = fetchWeatherData();
-
-document.querySelector('button').addEventListener('click', (e) => { e.preventDefault(); console.log(test); })
+export const dataObject = await fetchWeatherData();
+display(dataObject);
+console.log(dataObject.metric.temp)
+document.querySelector('button').addEventListener('click', (e) => { e.preventDefault(); console.log('click'); display(dataObject); })
