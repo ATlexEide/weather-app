@@ -1,42 +1,76 @@
 import '../css/style.css';
-import { display } from './dom';
+import { drawHeader } from './dom.js'
+import { drawMainContainer } from './dom.js'
+import { drawFooter } from './dom.js'
+import { body } from './dom.js';
 
 const API_KEY = '72f920ddfbf143c9ac1164854240606';
-const LOCATION = 'bergen'
+// const LOCATION = 'bergen'
 
 
-async function fetchWeatherData(API_KEY = '72f920ddfbf143c9ac1164854240606', LOCATION = 'bergen') {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${LOCATION}`);
-    const dataJSON = await response.json();
-    const data = {
-        condition: {
-            code: dataJSON.current.condition.code,
-            text: dataJSON.current.condition.text,
-        },
-        location: {
-            city: dataJSON.location.name,
-            country: dataJSON.location.country,
-            local_time: dataJSON.location.localtime,
-            local_time_epoch: dataJSON.location.localtime_epoch,
-        },
-        metric: {
-            temp: dataJSON.current.temp_c,
-            feelsLike: dataJSON.current.feelslike_c,
-            wind: dataJSON.current.wind_kph,
-            windUnit: 'KPH',
-        },
-        imperial: {
-            temp: dataJSON.current.temp_f,
-            feelsLike: dataJSON.current.feelslike_f,
-            wind: dataJSON.current.wind_mph,
-        },
-        humidity: dataJSON.current.humidity,
-        wind_dir: dataJSON.current.wind_dir,
+
+
+export async function fetchWeatherData(LOCATION = 'bergen') {
+    try {
+        const request = await fetch(`http://api.weatherapi.com/v1/current.json?key=72f920ddfbf143c9ac1164854240606&q=` + LOCATION, { type: 'cors' });
+        const response = await request.json();
+        const dataObj = {
+            condition: {
+                code: response.current.condition.code,
+                text: response.current.condition.text,
+            },
+            location: {
+                city: response.location.name,
+                country: response.location.country,
+                local_time: response.location.localtime,
+                local_time_epoch: response.location.localtime_epoch,
+            },
+            metric: {
+                temp: response.current.temp_c,
+                feelsLike: response.current.feelslike_c,
+                wind: response.current.wind_kph,
+                windUnit: 'KPH',
+            },
+            imperial: {
+                temp: response.current.temp_f,
+                feelsLike: response.current.feelslike_f,
+                wind: response.current.wind_mph,
+                windUnit: 'MPH',
+            },
+            humidity: response.current.humidity,
+            wind_dir: response.current.wind_dir,
+        };
+        return dataObj
+    } catch (error) {
+        return 'Oops'
     };
-    return data;
+
 };
 
-export const dataObject = await fetchWeatherData();
-display(dataObject);
-console.log(dataObject.metric.temp)
-document.querySelector('button').addEventListener('click', (e) => { e.preventDefault(); console.log('click'); display(dataObject); })
+
+export async function addEventListener(id) {
+    const test = document.getElementById('input-location')
+    console.log(test.value)
+    document.getElementById(id).addEventListener('click', (e) => { e.preventDefault(); display(test); })
+}
+// display(data)
+// function display(data) {
+//     body.innerHTML = '';
+//     // Display all elements
+//     drawHeader();
+//     drawMainContainer(data);
+//     drawFooter();
+//     addEventListener('submit-location');
+// };
+
+async function display() {
+    const data = await fetchWeatherData();
+    body.innerHTML = '';
+    // Display all elements
+    drawHeader();
+    drawMainContainer(data);
+    drawFooter();
+    addEventListener('submit-location');
+
+};
+display()
