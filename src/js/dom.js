@@ -51,8 +51,8 @@ function drawInputForm(containingFunction) {
     const container = document.createElement('div');
     container.id = 'input-container';
     // Form
-    const form = document.createElement('form');
-    form.id = 'search-bar'
+    // const form = document.createElement('form');
+    // form.id = 'search-bar'
     // Input
     const input = document.createElement('input');
     input.id = 'input-location';
@@ -64,9 +64,9 @@ function drawInputForm(containingFunction) {
 
     //Appending
     drawUnitSelector(container)
-    form.appendChild(input);
-    form.appendChild(btn);
-    container.appendChild(form);
+    container.appendChild(input);
+    container.appendChild(btn);
+    // container.appendChild(form);
     containingFunction.appendChild(container);
 };
 
@@ -144,15 +144,13 @@ function drawLocationDetails(containingFunction, data) {
     // Container
     const city = document.createElement('div');
     city.id = 'city';
-    city.textContent = data.location.city;
+    city.textContent = '';
     const country = document.createElement('div');
     country.id = 'country';
-    country.textContent = data.location.country;
+    country.textContent = '';
     const time = document.createElement('div');
     time.id = 'time';
-    const d = new Date(0);
-    d.setUTCSeconds(data.location.local_time_epoch)
-    time.textContent = `${d.getHours()}:${d.getMinutes()}`;
+    time.textContent = '';
 
     // Appending
     containingFunction.appendChild(city);
@@ -188,7 +186,7 @@ function drawWeatherDetails(containingFunction, data) {
     labelTemp.textContent = 'Temperature:';
     const spanTemp = document.createElement('span');
     spanTemp.id = 'temp';
-    spanTemp.textContent = data.metric.temp;
+    spanTemp.textContent = '';
     divTemp.appendChild(labelTemp);
     divTemp.appendChild(spanTemp);
 
@@ -210,7 +208,7 @@ function drawWeatherDetails(containingFunction, data) {
     labelHumidity.textContent = 'Humidity:';
     const spanHumidity = document.createElement('span');
     spanHumidity.id = 'humidity';
-    spanHumidity.textContent = data.humidity;
+    spanHumidity.textContent = '';
     divHumidity.appendChild(labelHumidity);
     divHumidity.appendChild(spanHumidity);
 
@@ -221,7 +219,7 @@ function drawWeatherDetails(containingFunction, data) {
     labelWind.textContent = 'Wind:';
     const spanWindage = document.createElement('span');
     spanWindage.id = 'wind';
-    spanWindage.textContent = data.metric.wind + data.metric.windUnit + ' ' + data.wind_dir;
+    spanWindage.textContent = '';
     divWind.appendChild(labelWind);
     divWind.appendChild(spanWindage);
 
