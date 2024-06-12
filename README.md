@@ -1,6 +1,6 @@
-An admin dashboard design created with HTML and CSS
+Weather app
 
-Live Preview <<<<<
+Live Preview <<<<<TBA
 
 Mobile-responsive: ❌
 
