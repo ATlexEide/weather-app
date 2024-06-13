@@ -12,7 +12,7 @@ export function updateDetails(data) {
     country.textContent = data.location.country;
 
     const spanTemp = document.getElementById('temp');
-    spanTemp.textContent = data.metric.temp;
+    spanTemp.textContent = data.metric.temp + data.metric.tempUnit;
 
     const spanHumidity = document.getElementById('humidity');
     spanHumidity.textContent = data.humidity + '%';
