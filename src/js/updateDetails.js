@@ -21,5 +21,5 @@ export function updateDetails(data) {
     spanWind.textContent = data.metric.wind + data.metric.windUnit + ' ' + data.wind_dir;
 
     const rainfall = document.getElementById('rainfall');
-    rainfall.textContent = data.rainfall_mm;
+    rainfall.textContent = data.rainfall_mm + 'mm';
 }
