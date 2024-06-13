@@ -144,10 +144,10 @@ function drawLocationDetails(containingFunction, data) {
     // Container
     const city = document.createElement('div');
     city.id = 'city';
-    city.textContent = '';
+    city.textContent = 'Ponyville';
     const country = document.createElement('div');
     country.id = 'country';
-    country.textContent = '';
+    country.textContent = 'Equestria'
     const time = document.createElement('div');
     time.id = 'time';
     time.textContent = '';
@@ -183,10 +183,10 @@ function drawWeatherDetails(containingFunction, data) {
     const divTemp = document.createElement('div');
     const labelTemp = document.createElement('label');
     labelTemp.setAttribute('for', 'temp');
-    labelTemp.textContent = 'Temperature:';
+    labelTemp.textContent = 'Temperature: ';
     const spanTemp = document.createElement('span');
     spanTemp.id = 'temp';
-    spanTemp.textContent = '';
+    spanTemp.textContent = '30°C';
     divTemp.appendChild(labelTemp);
     divTemp.appendChild(spanTemp);
 
@@ -194,10 +194,10 @@ function drawWeatherDetails(containingFunction, data) {
     const divRainfall = document.createElement('div');
     const labelRainfall = document.createElement('label');
     labelRainfall.setAttribute('for', 'rainfall');
-    labelRainfall.textContent = 'Rainfall:';
+    labelRainfall.textContent = 'Rainfall: ';
     const spanRainfall = document.createElement('span');
     spanRainfall.id = 'rainfall';
-    spanRainfall.textContent = placeholderText;
+    spanRainfall.textContent = '0%';
     divRainfall.appendChild(labelRainfall);
     divRainfall.appendChild(spanRainfall);
 
@@ -205,10 +205,10 @@ function drawWeatherDetails(containingFunction, data) {
     const divHumidity = document.createElement('div');
     const labelHumidity = document.createElement('label');
     labelHumidity.setAttribute('for', 'humidity');
-    labelHumidity.textContent = 'Humidity:';
+    labelHumidity.textContent = 'Humidity: ';
     const spanHumidity = document.createElement('span');
     spanHumidity.id = 'humidity';
-    spanHumidity.textContent = '';
+    spanHumidity.textContent = '31%';
     divHumidity.appendChild(labelHumidity);
     divHumidity.appendChild(spanHumidity);
 
@@ -216,10 +216,10 @@ function drawWeatherDetails(containingFunction, data) {
     const divWind = document.createElement('div');
     const labelWind = document.createElement('label');
     labelWind.setAttribute('for', 'wind');
-    labelWind.textContent = 'Wind:';
+    labelWind.textContent = 'Wind: ';
     const spanWindage = document.createElement('span');
     spanWindage.id = 'wind';
-    spanWindage.textContent = '';
+    spanWindage.textContent = '1 m/s';
     divWind.appendChild(labelWind);
     divWind.appendChild(spanWindage);
 
