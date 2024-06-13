@@ -142,10 +142,15 @@ function drawLocationInfo(containingFunction, data) {
 //
 function drawLocationDetails(containingFunction, data) {
     // Container
+    const img = document.createElement('img');
+    img.id = 'weather-icon';
+    img.setAttribute('src', 'https://i.imgur.com/Qifgpbi.png');
     const city = document.createElement('div');
+    city.setAttribute('class', 'city-details');
     city.id = 'city';
     city.textContent = 'Ponyville';
     const country = document.createElement('div');
+    country.setAttribute('class', 'city-details');
     country.id = 'country';
     country.textContent = 'Equestria'
     const time = document.createElement('div');
@@ -153,6 +158,7 @@ function drawLocationDetails(containingFunction, data) {
     time.textContent = '';
 
     // Appending
+    containingFunction.appendChild(img)
     containingFunction.appendChild(city);
     containingFunction.appendChild(country);
     containingFunction.appendChild(time);
@@ -202,7 +208,6 @@ function drawWeatherDetails(containingFunction, data) {
     spanRainfall.textContent = '0mm';
     divRainfall.appendChild(labelRainfall);
     divRainfall.appendChild(spanRainfall);
-
     // Humidity
     const divHumidity = document.createElement('div');
     divHumidity.setAttribute('class', 'weather-details');
