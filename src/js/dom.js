@@ -181,6 +181,7 @@ function drawWeatherDetails(containingFunction, data) {
 
     // Temperature
     const divTemp = document.createElement('div');
+    divTemp.setAttribute('class', 'weather-details');
     const labelTemp = document.createElement('label');
     labelTemp.setAttribute('for', 'temp');
     labelTemp.textContent = 'Temperature: ';
@@ -192,6 +193,7 @@ function drawWeatherDetails(containingFunction, data) {
 
     // Rainfall
     const divRainfall = document.createElement('div');
+    divRainfall.setAttribute('class', 'weather-details');
     const labelRainfall = document.createElement('label');
     labelRainfall.setAttribute('for', 'rainfall');
     labelRainfall.textContent = 'Rainfall: ';
@@ -203,6 +205,7 @@ function drawWeatherDetails(containingFunction, data) {
 
     // Humidity
     const divHumidity = document.createElement('div');
+    divHumidity.setAttribute('class', 'weather-details');
     const labelHumidity = document.createElement('label');
     labelHumidity.setAttribute('for', 'humidity');
     labelHumidity.textContent = 'Humidity: ';
@@ -214,6 +217,7 @@ function drawWeatherDetails(containingFunction, data) {
 
     // Wind
     const divWind = document.createElement('div');
+    divWind.setAttribute('class', 'weather-details');
     const labelWind = document.createElement('label');
     labelWind.setAttribute('for', 'wind');
     labelWind.textContent = 'Wind: ';
@@ -224,6 +228,7 @@ function drawWeatherDetails(containingFunction, data) {
     divWind.appendChild(spanWind);
     // Uv
     const divUv = document.createElement('div');
+    divUv.setAttribute('class', 'weather-details');
     const labelUv = document.createElement('label');
     labelUv.setAttribute('for', 'uv');
     labelUv.textContent = 'Uv: ';
