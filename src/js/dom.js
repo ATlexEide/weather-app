@@ -246,6 +246,7 @@ function drawWeatherDetails(containingFunction, data) {
 function drawGraph(containingFunction) {
     // Graph
     const graph = document.createElement('div');
+    graph.id = 'graph'
     graph.textContent = 'Graph? Maybe?';
 
     // Appending
