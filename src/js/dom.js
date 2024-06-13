@@ -222,6 +222,16 @@ function drawWeatherDetails(containingFunction, data) {
     spanWindage.textContent = '1 m/s';
     divWind.appendChild(labelWind);
     divWind.appendChild(spanWindage);
+    // Uv
+    const divUv = document.createElement('div');
+    const labelUv = document.createElement('label');
+    labelUv.setAttribute('for', 'uv');
+    labelUv.textContent = 'Uv: ';
+    const spanUv = document.createElement('span');
+    spanUv.id = 'uv';
+    spanUv.textContent = '0';
+    divUv.appendChild(labelUv);
+    divUv.appendChild(spanUv);
 
     // Main Appending
     containingFunction.appendChild(divTemp);
