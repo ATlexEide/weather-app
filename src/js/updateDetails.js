@@ -3,7 +3,7 @@ export function updateDetails(data) {
     const time = document.getElementById('time');
     const d = new Date(0);
     d.setUTCSeconds(data.location.time_epoch);
-    time.textContent = `${d.getHours()}:${d.getMinutes()}`;
+    time.textContent = 'Last update: ' + data.lastUpdate;
 
     const city = document.getElementById('city');
     city.textContent = data.location.city;
