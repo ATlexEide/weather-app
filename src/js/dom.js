@@ -197,7 +197,7 @@ function drawWeatherDetails(containingFunction, data) {
     labelRainfall.textContent = 'Rainfall: ';
     const spanRainfall = document.createElement('span');
     spanRainfall.id = 'rainfall';
-    spanRainfall.textContent = '0%';
+    spanRainfall.textContent = '0mm';
     divRainfall.appendChild(labelRainfall);
     divRainfall.appendChild(spanRainfall);
 
