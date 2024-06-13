@@ -46,6 +46,8 @@ async function createDataObject(value) {
             wind: data.current.wind_kph,
             tempUnit: '°C',
             windUnit: 'KPH',
+            rainfall: data.current.precip_mm,
+            rainfallUnit: 'mm',
         },
         imperial: {
             temp: data.current.temp_f,
@@ -53,12 +55,13 @@ async function createDataObject(value) {
             wind: data.current.wind_mph,
             tempUnit: '°F',
             windUnit: 'MPH',
+            rainfall: data.current.precip_in,
+            rainfallUnit: 'in',
         },
         humidity: data.current.humidity,
         wind_dir: data.current.wind_dir,
         uv: data.current.uv,
         lastUpdate: data.current.last_updated,
-        rainfall_mm: data.current.precip_mm,
     }
     return currLocation;
 }
@@ -70,3 +73,10 @@ submit.addEventListener('click', async () => {
     updateDetails(await currLocation_Data)
 })
 // ////////////////////////
+const radio = document.querySelectorAll('input[type="radio"]');
+for (const option of radio) {
+    option.addEventListener('click', async () => {
+        const currLocation_Data = createDataObject();
+        updateDetails(await currLocation_Data)
+    })
+};

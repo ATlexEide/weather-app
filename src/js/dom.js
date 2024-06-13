@@ -90,7 +90,7 @@ function drawUnitSelector(containingFunction) {
     radioCelcius.id = 'celcius';
     const labelCelcius = document.createElement('label');
     labelCelcius.setAttribute('for', 'celcius');
-    labelCelcius.textContent = 'C';
+    labelCelcius.textContent = 'Metric';
 
     containerC.appendChild(radioCelcius);
     containerC.appendChild(labelCelcius);
@@ -102,7 +102,7 @@ function drawUnitSelector(containingFunction) {
     radioFahrenheit.id = 'fahrenheit';
     const labelFahrenheit = document.createElement('label');
     labelFahrenheit.setAttribute('for', 'fahrenheit');
-    labelFahrenheit.textContent = 'F';
+    labelFahrenheit.textContent = 'Imperial';
 
     containerF.appendChild(radioFahrenheit);
     containerF.appendChild(labelFahrenheit);
