@@ -64,17 +64,10 @@ async function createDataObject(value) {
 }
 
 // /////////////////////////
-
-// //////////////////////
-const input = document.getElementById('input-location');
 const submit = document.getElementById('submit-location');
 submit.addEventListener('click', async () => {
     const currLocation_Data = createDataObject();
-    console.log(currLocation_Data)
-    const data = await createDataObject(currLocation_Data)
-    updateDetails(data)
-
-    // add () to run func
+    updateDetails(await currLocation_Data)
 })
 // ////////////////////////
 
