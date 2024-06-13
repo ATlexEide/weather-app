@@ -22,13 +22,12 @@ async function fetchData(location) {
 }
 // ///////////////////////////
 async function createDataObject(value) {
+
     const searchInput = document.getElementById('input-location');
     const getLocation = () => { if (searchInput.value) { return searchInput.value } else { return 'bergen' } }
-    const location = getLocation();
-    console.log(location)
 
-    const data = await fetchData(location);
-    console.log(data)
+    const data = await fetchData(getLocation());
+    console.log(data);
 
     let currLocation = {
         test: 'yipp',
