@@ -44,23 +44,27 @@ h1 {
 }
 
 #weather-icon {
-    width: 70px;
+    width: 100px;
 }
 
 #city-info {
     display: flex;
+    height: 100%;
     flex-direction: column;
-    justify-content: space-between;
     margin-left: 28px;
 }
 
-#city-info:nth-child(1) {
+#city-info>img {
+    justify-content: end;
+    padding: 30px;
+    margin-bottom: 90%;
     border: solid yellow 1px;
 }
 
 .city-details {
-    font-size: 38px;
+    font-size: 28px;
     padding: .5rem;
+
 }
 
 #weather-info {
@@ -79,6 +83,7 @@ h1 {
 .weather-details {
     height: fit-content;
     margin: 20px;
+    font-size: 20px;
 }
 
 #graph {
@@ -90,7 +95,7 @@ h1 {
 
 #input-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex: 1 1 0;
     background-color: rgb(255, 218, 185, .4);
     border-radius: 0px 0px 20px 20px;
@@ -114,8 +119,17 @@ h1 {
 #search-bar {
     display: flex;
     width: 30%;
-    flex-direction: column;
     align-items: center;
+}
+
+input {
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 0 10px;
+}
+
+input::placeholder {
+    margin-left: 20px;
 }
 
 footer {
