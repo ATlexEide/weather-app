@@ -70,13 +70,3 @@ submit.addEventListener('click', async () => {
     updateDetails(await currLocation_Data)
 })
 // ////////////////////////
-
-
-
-// "rejected"
-// TypeError: Cannot read properties of undefined (reading 'name') at createDataObject (http://localhost:3000/index.bundle.js:4416:33)
-// index.js:16 
-//  GET http://api.weatherapi.com/v1/current.json?key=72f920d…&q=undefined 400 (Bad Request)
-
-// index.js:29 Uncaught (in promise) 
-// TypeError: Cannot read properties of undefined (reading 'name')
