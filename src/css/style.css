@@ -48,11 +48,18 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 45%;
     height: 93%;
     margin-right: 3%;
     background-color: rgb(51, 48, 202, .2);
     border-radius: 0px 20px 20px 0px;
+}
+
+#graph {
+    background-color: blue;
+    height: calc(100%/2);
+    width: 100%;
 }
 
 
