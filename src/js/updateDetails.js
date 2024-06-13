@@ -15,7 +15,7 @@ export function updateDetails(data) {
     spanTemp.textContent = data.metric.temp;
 
     const spanHumidity = document.getElementById('humidity');
-    spanHumidity.textContent = data.humidity;
+    spanHumidity.textContent = data.humidity + '%';
 
     const spanWindage = document.getElementById('wind');
     spanWindage.textContent = data.metric.wind + data.metric.windUnit + ' ' + data.wind_dir;
