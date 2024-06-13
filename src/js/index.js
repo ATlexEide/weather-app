@@ -28,6 +28,8 @@ async function createDataObject(value) {
     console.log(location)
 
     const data = await fetchData(location);
+    console.log(data)
+
     let currLocation = {
         test: 'yipp',
         location: {
@@ -53,6 +55,9 @@ async function createDataObject(value) {
         },
         humidity: data.current.humidity,
         wind_dir: data.current.wind_dir,
+        uv: data.current.uv,
+        lastUpdate: data.current.last_updated,
+        rainfall_mm: data.current.precip_mm,
     }
     return currLocation;
 }
