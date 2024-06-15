@@ -41,49 +41,6 @@ export async function printData(dataObj) {
                                                                 data.wind_dir === 'NW' ? windDirIcon.style.transform = 'rotate(315deg)' :
                                                                     data.wind_dir === 'NNW' ? windDirIcon.style.transform = 'rotate(337.5deg)' :
                                                                         console.log('Oopsie')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // data.wind_dir === 'N' ? windDirIcon.src = 'https://i.imgur.com/ID05YeQ.png' :
-    //     data.wind_dir === 'NW' ? windDirIcon.src = 'https://i.imgur.com/yoHQt3u.png' :
-    //         data.wind_dir === 'NE' ? windDirIcon.src = 'https://i.imgur.com/T7O9l97.png' :
-    //             data.wind_dir === 'S' ? windDirIcon.src = 'https://i.imgur.com/RxlQhde.png' :
-    //                 data.wind_dir === 'SW' ? windDirIcon.src = 'https://i.imgur.com/HcsT7pN.png' :
-    //                     data.wind_dir === 'SE' ? windDirIcon.src = 'https://i.imgur.com/4Kt3DCa.png' :
-    //                         data.wind_dir === 'W' ? windDirIcon.src = 'https://i.imgur.com/SQrvNSm.png' : windDirIcon.src = 'https://i.imgur.com/jUmlTYq.png';
 };
 
 export async function changeUnits(dataObj) {
