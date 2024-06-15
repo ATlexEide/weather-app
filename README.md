@@ -1,6 +1,6 @@
 Weather app
 
-Live Preview <<<<<TBA
+Live Preview <a href="https://atlexeide.github.io/weather-app/"><<<<<<</a>
 
 Mobile-responsive: ❌
 
