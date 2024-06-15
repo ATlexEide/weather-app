@@ -75,7 +75,7 @@ function drawInputForm(containingFunction) {
     // Input
     const input = document.createElement('input');
     input.id = 'input-location';
-    input.setAttribute('placeholder', 'Bergen');
+    input.setAttribute('placeholder', 'Search for location');
     // Button
     const btn = document.createElement('button');
     btn.id = 'submit-location';
