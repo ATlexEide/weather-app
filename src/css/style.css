@@ -53,19 +53,20 @@ h1 {
 
 #weather-icon {
     width: 100px;
+    margin-bottom: auto;
 }
 
 #city-info {
     display: flex;
     height: 100%;
     flex-direction: column;
-    margin-left: 28px;
+    justify-content: space-between;
 }
 
 #city-info>img {
     justify-content: end;
     padding: 30px;
-    margin-bottom: 90%;
+    /* margin-bottom: 90%; */
     border: solid yellow 1px;
 }
 
