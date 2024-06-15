@@ -1,4 +1,4 @@
-Weather app
+<h1>Weather app</h1>
 
 Live Preview <a href="https://atlexeide.github.io/weather-app/"><<<<<<</a>
 
