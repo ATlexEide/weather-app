@@ -8,7 +8,6 @@ import { printData, changeUnits } from './updateDetails.js';
     drawHeader();
     drawMainContainer();
     drawFooter();
-    document.getElementById('submit-location').click();
 }
 )();
 // /////////////////////////
@@ -71,7 +70,8 @@ async function updateDataObj(location) {
 };
 
 const submit = document.getElementById('submit-location');
-submit.addEventListener('click', async () => {
+submit.addEventListener('click', async (e) => {
+    e.preventDefault()
     updateDataObj(getLocation());
     printData(dataObj);
 });
