@@ -52,12 +52,12 @@ export async function changeUnits(dataObj) {
         document.getElementById('temp').textContent = data.metric.temp + data.metric.tempUnit;
         document.getElementById('humidity').textContent = data.humidity + '%';
         document.getElementById('wind').textContent = data.metric.wind + data.metric.windUnit + ' ' + data.wind_dir;
-        document.getElementById('rainfall').textContent = data.metric.rainfall + data.metric.rainfallUnit;
+        document.getElementById('precipitation').textContent = data.metric.precipitation + data.metric.precipitationUnit;
     } else {
         document.getElementById('temp').textContent = data.imperial.temp + data.imperial.tempUnit;
         document.getElementById('humidity').textContent = data.humidity + '%';
         document.getElementById('wind').textContent = data.imperial.wind + data.imperial.windUnit + ' ' + data.wind_dir;
-        document.getElementById('rainfall').textContent = data.imperial.rainfall + data.imperial.rainfallUnit;
+        document.getElementById('precipitation').textContent = data.imperial.precipitation + data.imperial.precipitationUnit;
     };
 };
 

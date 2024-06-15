@@ -3,6 +3,7 @@ import { drawHeader } from './dom.js';
 import { drawMainContainer } from './dom.js';
 import { drawFooter } from './dom.js';
 import { printData, changeUnits } from './updateDetails.js';
+
 // /////////////////////////
 (function display() {
     drawHeader();
@@ -45,8 +46,8 @@ async function createDataObject(fetchedData) {
             wind: data.current.wind_kph,
             tempUnit: '°C',
             windUnit: 'KPH',
-            rainfall: data.current.precip_mm,
-            rainfallUnit: 'mm',
+            precipitation: data.current.precip_mm,
+            precipitationUnit: 'mm',
         },
         imperial: {
             temp: data.current.temp_f,
@@ -54,8 +55,8 @@ async function createDataObject(fetchedData) {
             wind: data.current.wind_mph,
             tempUnit: '°F',
             windUnit: 'MPH',
-            rainfall: data.current.precip_in,
-            rainfallUnit: 'in',
+            precipitation: data.current.precip_in,
+            precipitationUnit: 'in',
         },
         humidity: data.current.humidity,
         wind_dir: data.current.wind_dir,

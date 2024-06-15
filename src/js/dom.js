@@ -161,6 +161,9 @@ function drawLocationInfo(containingFunction, data) {
 //
 function drawLocationDetails(containingFunction, data) {
     // Container
+    const weatherConditions = document.createElement('div');
+    weatherConditions.id = 'weather-conditions';
+
     const locationInfo = document.createElement('div');
     locationInfo.id = 'location-info';
 
@@ -180,9 +183,8 @@ function drawLocationDetails(containingFunction, data) {
     const compassWindDirText = document.createElement('div');
     compassWindDirText.id = 'compass-wind-dir-text';
     compassWindDirText.textContent = 'N';
-    compassContainer.appendChild(compassBody);
-    compassContainer.appendChild(compassWindDirIcon)
-    compassContainer.appendChild(compassWindDirText)
+
+
 
     const conditionText = document.createElement('span');
     conditionText.id = 'condition-text';
@@ -200,11 +202,19 @@ function drawLocationDetails(containingFunction, data) {
     time.textContent = '';
 
     // Appending
-    containingFunction.appendChild(weatherIcon);
-    containingFunction.appendChild(conditionText);
-    containingFunction.appendChild(compassContainer)
+    weatherConditions.appendChild(weatherIcon)
+    weatherConditions.appendChild(conditionText)
+    weatherConditions.appendChild(compassContainer)
+    //
+    compassContainer.appendChild(compassBody);
+    compassContainer.appendChild(compassWindDirIcon)
+    compassContainer.appendChild(compassWindDirText)
+    //
+    //
     locationInfo.appendChild(city);
     locationInfo.appendChild(country);
+    //
+    containingFunction.appendChild(weatherConditions);
     containingFunction.appendChild(locationInfo);
     containingFunction.appendChild(time);
 };
@@ -242,17 +252,17 @@ function drawWeatherDetails(containingFunction, data) {
     divTemp.appendChild(labelTemp);
     divTemp.appendChild(spanTemp);
 
-    // Rainfall
-    const divRainfall = document.createElement('div');
-    divRainfall.setAttribute('class', 'weather-details');
-    const labelRainfall = document.createElement('label');
-    labelRainfall.setAttribute('for', 'rainfall');
-    labelRainfall.textContent = 'Rainfall: ';
-    const spanRainfall = document.createElement('span');
-    spanRainfall.id = 'rainfall';
-    spanRainfall.textContent = '0mm';
-    divRainfall.appendChild(labelRainfall);
-    divRainfall.appendChild(spanRainfall);
+    // Precipitation
+    const divPrecipitation = document.createElement('div');
+    divPrecipitation.setAttribute('class', 'weather-details');
+    const labelPrecipitation = document.createElement('label');
+    labelPrecipitation.setAttribute('for', 'precipitation');
+    labelPrecipitation.textContent = 'Precipitation: ';
+    const spanPrecipitation = document.createElement('span');
+    spanPrecipitation.id = 'precipitation';
+    spanPrecipitation.textContent = '0mm';
+    divPrecipitation.appendChild(labelPrecipitation);
+    divPrecipitation.appendChild(spanPrecipitation);
     // Humidity
     const divHumidity = document.createElement('div');
     divHumidity.setAttribute('class', 'weather-details');
@@ -290,7 +300,7 @@ function drawWeatherDetails(containingFunction, data) {
 
     // Main Appending
     containingFunction.appendChild(divTemp);
-    containingFunction.appendChild(divRainfall);
+    containingFunction.appendChild(divPrecipitation);
     containingFunction.appendChild(divHumidity);
     containingFunction.appendChild(divWind);
 };
