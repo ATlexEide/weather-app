@@ -1,3 +1,14 @@
+// const compass = 'https://i.imgur.com/SH5AKLq.png';
+const N = '';
+const NW = '';
+const NE = '';
+const S = '';
+const SW = '';
+const SE = '';
+const W = '';
+const E = '';
+
+
 export const body = document.body;
 const placeholderText = 'placeholder';
 
@@ -153,13 +164,29 @@ function drawLocationDetails(containingFunction, data) {
     const locationInfo = document.createElement('div');
     locationInfo.id = 'location-info';
 
-    const img = document.createElement('img');
-    img.id = 'weather-icon';
-    img.setAttribute('src', 'https://i.imgur.com/Qifgpbi.png');
+    const weatherIcon = document.createElement('img');
+    weatherIcon.id = 'weather-icon';
+    weatherIcon.setAttribute('src', '//cdn.weatherapi.com/weather/64x64/day/113.png');
+
+
+    const compassContainer = document.createElement('div');
+    compassContainer.id = 'compass-container';
+    const compassBody = document.createElement('img');
+    compassBody.id = 'compass-body';
+    compassBody.src = 'https://i.imgur.com/SH5AKLq.png';
+    const compassWindDirIcon = document.createElement('img');
+    compassWindDirIcon.id = 'wind-dir-icon'
+    compassWindDirIcon.src = 'https://i.imgur.com/ID05YeQ.png';
+    const compassWindDirText = document.createElement('div');
+    compassWindDirText.id = 'compass-wind-dir-text';
+    compassWindDirText.textContent = 'N';
+    compassContainer.appendChild(compassBody);
+    compassContainer.appendChild(compassWindDirIcon)
+    compassContainer.appendChild(compassWindDirText)
 
     const conditionText = document.createElement('span');
     conditionText.id = 'condition-text';
-    conditionText.textContent = 'Hello I\'m a placeholder';
+    conditionText.textContent = 'Sunny';
     const city = document.createElement('div');
     city.setAttribute('class', 'city-details');
     city.id = 'city';
@@ -173,10 +200,11 @@ function drawLocationDetails(containingFunction, data) {
     time.textContent = '';
 
     // Appending
-    containingFunction.appendChild(img);
+    containingFunction.appendChild(weatherIcon);
+    containingFunction.appendChild(conditionText);
+    containingFunction.appendChild(compassContainer)
     locationInfo.appendChild(city);
     locationInfo.appendChild(country);
-    containingFunction.appendChild(conditionText);
     containingFunction.appendChild(locationInfo);
     containingFunction.appendChild(time);
 };
