@@ -37,9 +37,17 @@ export function drawMainContainer(data) {
 export function drawFooter() {
     // Footer
     const footer = document.createElement('footer');
-    footer.textContent = 'A TOP Project';
+    const span = document.createElement('span');
+    const a = document.createElement('a');
+    a.id = 'link-back'
+    a.setAttribute('href', 'https://www.weatherapi.com/');
+    a.setAttribute('title', 'Free Weather API');
+    a.textContent = 'WeatherAPI.com'
+    span.textContent = `A TOP Project | Powered by `
 
     // Appending
+    span.appendChild(a)
+    footer.appendChild(span)
     body.appendChild(footer);
 };
 
@@ -51,8 +59,8 @@ function drawInputForm(containingFunction) {
     const container = document.createElement('div');
     container.id = 'input-container';
     // Form
-    // const form = document.createElement('form');
-    // form.id = 'search-bar'
+    const form = document.createElement('form');
+    form.id = 'search-bar'
     // Input
     const input = document.createElement('input');
     input.id = 'input-location';
@@ -64,9 +72,9 @@ function drawInputForm(containingFunction) {
 
     //Appending
     drawUnitSelector(container);
-    container.appendChild(input);
-    container.appendChild(btn);
-    // container.appendChild(form);
+    form.appendChild(input);
+    form.appendChild(btn);
+    container.appendChild(form);
     containingFunction.appendChild(container);
 };
 
