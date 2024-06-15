@@ -156,6 +156,10 @@ function drawLocationDetails(containingFunction, data) {
     const img = document.createElement('img');
     img.id = 'weather-icon';
     img.setAttribute('src', 'https://i.imgur.com/Qifgpbi.png');
+
+    const conditionText = document.createElement('span');
+    conditionText.id = 'condition-text';
+    conditionText.textContent = 'Hello I\'m a placeholder';
     const city = document.createElement('div');
     city.setAttribute('class', 'city-details');
     city.id = 'city';
@@ -172,6 +176,7 @@ function drawLocationDetails(containingFunction, data) {
     containingFunction.appendChild(img);
     locationInfo.appendChild(city);
     locationInfo.appendChild(country);
+    containingFunction.appendChild(conditionText);
     containingFunction.appendChild(locationInfo);
     containingFunction.appendChild(time);
 };

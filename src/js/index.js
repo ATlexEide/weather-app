@@ -37,6 +37,7 @@ async function createDataObject(fetchedData) {
         condition: {
             code: data.current.condition.code,
             text: data.current.condition.text,
+            icon: data.current.condition.icon,
         },
         metric: {
             temp: data.current.temp_c,

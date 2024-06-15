@@ -8,6 +8,10 @@ export async function printData(dataObj) {
     let unit;
     radioC.checked ? unit = 'metric' : unit = 'imperial';
 
+    document.getElementById('weather-icon').setAttribute('src', data.condition.icon);
+    document.getElementById('condition-text').textContent = data.condition.text;
+
+
     document.getElementById('time').textContent = 'Last update: ' + data.lastUpdate;
     document.getElementById('city').textContent = data.location.city;
     document.getElementById('country').textContent = data.location.country;

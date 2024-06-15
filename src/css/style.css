@@ -52,8 +52,12 @@ h1 {
 }
 
 #weather-icon {
-    width: 100px;
+    width: 150px;
+}
+
+#condition-text {
     margin-bottom: auto;
+    font-size: 38px;
 }
 
 #city-info {
@@ -63,12 +67,6 @@ h1 {
     justify-content: space-between;
 }
 
-#city-info>img {
-    justify-content: end;
-    padding: 30px;
-    /* margin-bottom: 90%; */
-    border: solid yellow 1px;
-}
 
 .city-details {
     font-size: 28px;
