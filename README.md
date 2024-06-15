@@ -5,4 +5,4 @@
 Mobile-responsive: ❌
 
 Thoughts and Opinions:
->>Honestly, fuck css
+>Honestly, fuck css
