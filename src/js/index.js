@@ -18,10 +18,8 @@ async function fetchData(location) {
     try {
         const request = await fetch(`http://api.weatherapi.com/v1/current.json?key=72f920ddfbf143c9ac1164854240606&q=${location}`, { type: 'cors' });
         const response = await request.json();
-        console.log(response);
         return response;
     } catch (error) {
-        console.log('oopsie, we got an error UwU  ' + error);
     };
 };
 // ///////////////////////////
