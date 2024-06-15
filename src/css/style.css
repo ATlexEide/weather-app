@@ -160,6 +160,7 @@ footer {
 
 #input-location {
     height: var(--location-input-height);
+    width: 150px;
 }
 
 #submit-location {
