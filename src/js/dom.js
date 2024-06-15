@@ -63,7 +63,7 @@ function drawInputForm(containingFunction) {
     btn.textContent = 'Search';
 
     //Appending
-    drawUnitSelector(container)
+    drawUnitSelector(container);
     container.appendChild(input);
     container.appendChild(btn);
     // container.appendChild(form);
@@ -131,7 +131,7 @@ function drawInfoContainer(containingFunction, data) {
 //
 function drawLocationInfo(containingFunction, data) {
     const div = document.createElement('div');
-    div.id = 'city-info'
+    div.id = 'city-info';
 
     drawLocationDetails(div, data);
     containingFunction.appendChild(div);
@@ -152,13 +152,13 @@ function drawLocationDetails(containingFunction, data) {
     const country = document.createElement('div');
     country.setAttribute('class', 'city-details');
     country.id = 'country';
-    country.textContent = 'Equestria'
+    country.textContent = 'Equestria';
     const time = document.createElement('div');
     time.id = 'time';
     time.textContent = '';
 
     // Appending
-    containingFunction.appendChild(img)
+    containingFunction.appendChild(img);
     containingFunction.appendChild(city);
     containingFunction.appendChild(country);
     containingFunction.appendChild(time);
@@ -256,7 +256,7 @@ function drawWeatherDetails(containingFunction, data) {
 function drawGraph(containingFunction) {
     // Graph
     const graph = document.createElement('div');
-    graph.id = 'graph'
+    graph.id = 'graph';
     graph.textContent = 'Graph? Maybe?';
 
     // Appending

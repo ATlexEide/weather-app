@@ -3,7 +3,7 @@ const rainfall = document.getElementById('rainfall');
 
 
 export async function printData(dataObj) {
-    const data = await dataObj
+    const data = await dataObj;
     const radioC = document.getElementById('celcius');
     let unit;
     radioC.checked ? unit = 'metric' : unit = 'imperial';
@@ -12,10 +12,10 @@ export async function printData(dataObj) {
     document.getElementById('city').textContent = data.location.city;
     document.getElementById('country').textContent = data.location.country;
     changeUnits(dataObj);
-}
+};
 
 export async function changeUnits(dataObj) {
-    const data = await dataObj
+    const data = await dataObj;
     const radioC = document.getElementById('celcius');
     let unit;
     radioC.checked ? unit = 'metric' : unit = 'imperial';
@@ -29,5 +29,5 @@ export async function changeUnits(dataObj) {
         document.getElementById('humidity').textContent = data.humidity + '%';
         document.getElementById('wind').textContent = data.imperial.wind + data.imperial.windUnit + ' ' + data.wind_dir;
         document.getElementById('rainfall').textContent = data.imperial.rainfall + data.imperial.rainfallUnit;
-    }
-}
+    };
+};

@@ -1,7 +1,7 @@
 import '../css/style.css';
-import { drawHeader } from './dom.js'
-import { drawMainContainer } from './dom.js'
-import { drawFooter } from './dom.js'
+import { drawHeader } from './dom.js';
+import { drawMainContainer } from './dom.js';
+import { drawFooter } from './dom.js';
 import { printData, changeUnits } from './updateDetails.js';
 // /////////////////////////
 (function display() {
@@ -13,12 +13,12 @@ import { printData, changeUnits } from './updateDetails.js';
 )();
 // /////////////////////////
 const searchInput = document.getElementById('input-location');
-const getLocation = () => { if (searchInput.value) { return searchInput.value } else { return 'bergen' } }
+const getLocation = () => { if (searchInput.value) { return searchInput.value } else { return 'bergen' } };
 async function fetchData(location) {
     try {
         const request = await fetch(`http://api.weatherapi.com/v1/current.json?key=72f920ddfbf143c9ac1164854240606&q=${location}`, { type: 'cors' });
         const response = await request.json();
-        console.log(response)
+        console.log(response);
         return response;
     } catch (error) {
         console.log('oopsie, we got an error UwU  ' + error);
@@ -27,7 +27,7 @@ async function fetchData(location) {
 // ///////////////////////////
 
 async function createDataObject(fetchedData) {
-    const data = await fetchedData
+    const data = await fetchedData;
     const dataObj = {
         test: 'yipp',
         location: {
@@ -61,24 +61,24 @@ async function createDataObject(fetchedData) {
         wind_dir: data.current.wind_dir,
         uv: data.current.uv,
         lastUpdate: data.current.last_updated,
-    }
+    };
     return dataObj;
-}
-let dataObj = createDataObject(fetchData(getLocation()))
+};
+let dataObj = createDataObject(fetchData(getLocation()));
 // /////////////////////////
 async function updateDataObj(location) {
-    dataObj = createDataObject(fetchData(location))
-}
+    dataObj = createDataObject(fetchData(location));
+};
 
 const submit = document.getElementById('submit-location');
 submit.addEventListener('click', async () => {
-    updateDataObj(getLocation())
-    printData(dataObj)
-})
+    updateDataObj(getLocation());
+    printData(dataObj);
+});
 
 const options = document.querySelectorAll('input[type=radio]');
 for (const option of options) {
     option.addEventListener('click', () => {
         changeUnits(dataObj);
-    })
-}
+    });
+};
