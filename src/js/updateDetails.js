@@ -1,6 +1,4 @@
 
-const rainfall = document.getElementById('rainfall');
-
 
 export async function printData(dataObj) {
     const data = await dataObj;
@@ -15,6 +13,9 @@ export async function printData(dataObj) {
     document.getElementById('time').textContent = 'Last update: ' + data.lastUpdate;
     document.getElementById('city').textContent = data.location.city;
     document.getElementById('country').textContent = data.location.country;
+    if (data.location.city.length > 10) { document.getElementById('city').style.fontSize = '34px'; document.getElementById('country').style.fontSize = '24px' }
+    else { document.getElementById('city').style.fontSize = '58px'; document.getElementById('country').style.fontSize = '34px' };
+    console.log(data.location.city.length)
     changeUnits(dataObj);
 
 
