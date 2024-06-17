@@ -16,10 +16,12 @@ const searchInput = document.getElementById('input-location');
 const getLocation = () => { if (searchInput.value) { return searchInput.value } else { return 'bergen' } };
 async function fetchData(location) {
     try {
-        const request = await fetch(`http://api.weatherapi.com/v1/current.json?key=72f920ddfbf143c9ac1164854240606&q=${location}`, { type: 'cors' });
+        const request = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=72f920ddfbf143c9ac1164854240606&q=${location}&days=3`, { type: 'cors' });
         const response = await request.json();
+        console.log(response)
         return response;
     } catch (error) {
+
     };
 };
 // ///////////////////////////
@@ -33,6 +35,59 @@ async function createDataObject(fetchedData) {
             country: data.location.country,
             time_epoch: data.location.localtime_epoch,
         },
+        forecast: [
+            {
+                date: data.forecast.forecastday[0].date,
+                condition: {
+                    code: data.forecast.forecastday[0].day.condition.code,
+                    icon: data.forecast.forecastday[0].day.condition.icon,
+                    text: data.forecast.forecastday[0].day.condition.text,
+                },
+                metricMax: data.forecast.forecastday[0].day.maxtemp_c,
+                metricMin: data.forecast.forecastday[0].day.mintemp_c,
+                imperialMax: data.forecast.forecastday[0].day.maxtemp_f,
+                imperialMin: data.forecast.forecastday[0].day.mintemp_f,
+                metricMaxwind: data.forecast.forecastday[0].day.maxwind_kph,
+                imperialMaxwind: data.forecast.forecastday[0].day.maxwind_mph,
+                metricPrecipitation: data.forecast.forecastday[0].day.totalprecip_mm,
+                imperialPrecipitation: data.forecast.forecastday[0].day.totalprecip_in,
+                humidity: data.forecast.forecastday[0].day.avghumidity,
+            },
+            {
+                date: data.forecast.forecastday[1].date,
+                condition: {
+                    code: data.forecast.forecastday[1].day.condition.code,
+                    icon: data.forecast.forecastday[1].day.condition.icon,
+                    text: data.forecast.forecastday[1].day.condition.text,
+                },
+                metricMax: data.forecast.forecastday[1].day.maxtemp_c,
+                metricMin: data.forecast.forecastday[1].day.mintemp_c,
+                imperialMax: data.forecast.forecastday[1].day.maxtemp_f,
+                imperialMin: data.forecast.forecastday[1].day.mintemp_f,
+                metricMaxwind: data.forecast.forecastday[1].day.maxwind_kph,
+                imperialMaxwind: data.forecast.forecastday[1].day.maxwind_mph,
+                metricPrecipitation: data.forecast.forecastday[1].day.totalprecip_mm,
+                imperialPrecipitation: data.forecast.forecastday[1].day.totalprecip_in,
+                humidity: data.forecast.forecastday[1].day.avghumidity,
+            },
+            {
+                date: data.forecast.forecastday[2].date,
+                condition: {
+                    code: data.forecast.forecastday[2].day.condition.code,
+                    icon: data.forecast.forecastday[2].day.condition.icon,
+                    text: data.forecast.forecastday[2].day.condition.text,
+                },
+                metricMax: data.forecast.forecastday[2].day.maxtemp_c,
+                metricMin: data.forecast.forecastday[2].day.mintemp_c,
+                imperialMax: data.forecast.forecastday[2].day.maxtemp_f,
+                imperialMin: data.forecast.forecastday[2].day.mintemp_f,
+                metricMaxwind: data.forecast.forecastday[2].day.maxwind_kph,
+                imperialMaxwind: data.forecast.forecastday[2].day.maxwind_mph,
+                metricPrecipitation: data.forecast.forecastday[2].day.totalprecip_mm,
+                imperialPrecipitation: data.forecast.forecastday[2].day.totalprecip_in,
+                humidity: data.forecast.forecastday[2].day.avghumidity,
+            },
+        ],
         condition: {
             code: data.current.condition.code,
             text: data.current.condition.text,

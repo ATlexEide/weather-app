@@ -1,6 +1,6 @@
 
 
-export async function printData(dataObj) {
+export async function printData(dataObj, days = 3) {
     const data = await dataObj;
     const radioC = document.getElementById('celcius');
     let unit;
@@ -40,6 +40,16 @@ export async function printData(dataObj) {
     if (data.wind_dir === 'WNW') { windDirIcon.style.transform = 'rotate(292.5deg)' };
     if (data.wind_dir === 'NW') { windDirIcon.style.transform = 'rotate(315deg)' };
     if (data.wind_dir === 'NNW') { windDirIcon.style.transform = 'rotate(337.5deg)' };
+
+
+    for (let i = 0; i < days; i++) {
+        document.getElementById(`forecast-icon-${i}`).src = data.forecast[i].condition.icon;
+        console.log('Temp: ', data.forecast[i][`${unit}Max`])
+        document.getElementById(`${i}-date`).textContent = data.forecast[i].date;
+        document.getElementById(`${0}-date`).textContent = 'Tomorrow';
+        document.getElementById(`${i}-humidity`).textContent = 'Humidity: ' + data.forecast[i].humidity + '%';
+    }
+
 };
 
 export async function changeUnits(dataObj) {
@@ -47,16 +57,12 @@ export async function changeUnits(dataObj) {
     const radioC = document.getElementById('celcius');
     let unit;
     radioC.checked ? unit = 'metric' : unit = 'imperial';
-    if (unit === 'metric') {
-        document.getElementById('temp').textContent = data.metric.temp + data.metric.tempUnit;
-        document.getElementById('humidity').textContent = data.humidity + '%';
-        document.getElementById('wind').textContent = data.metric.wind + data.metric.windUnit + ' ' + data.wind_dir;
-        document.getElementById('precipitation').textContent = data.metric.precipitation + data.metric.precipitationUnit;
-    } else {
-        document.getElementById('temp').textContent = data.imperial.temp + data.imperial.tempUnit;
-        document.getElementById('humidity').textContent = data.humidity + '%';
-        document.getElementById('wind').textContent = data.imperial.wind + data.imperial.windUnit + ' ' + data.wind_dir;
-        document.getElementById('precipitation').textContent = data.imperial.precipitation + data.imperial.precipitationUnit;
+    document.getElementById('temp').textContent = data[unit].temp + data[unit].tempUnit;
+    document.getElementById('humidity').textContent = data.humidity + '%';
+    document.getElementById('wind').textContent = data[unit].wind + data[unit].windUnit + ' ' + data.wind_dir;
+    document.getElementById('precipitation').textContent = data[unit].precipitation + data[unit].precipitationUnit;
+    for (let i = 0; i < data.forecast.length; i++) {
+        document.getElementById(`${i}-temp`).textContent = data.forecast[i][`${unit}Max`] + data[unit].tempUnit + ' / ' + data.forecast[i][`${unit}Min`] + data[unit].tempUnit;
+        document.getElementById(`${i}-precipitation`).textContent = 'Precipitation: ' + data.forecast[i][`${unit}Precipitation`] + data[unit].precipitationUnit;
     };
 };
-

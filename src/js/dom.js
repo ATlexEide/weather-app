@@ -139,12 +139,41 @@ function drawInfoContainer(containingFunction, data) {
     // Info container
     const div = document.createElement('div');
     div.id = 'info-container';
-
     drawLocationInfo(div, data);
     drawWeatherInfo(div, data);
+    drawForecast(div);
     containingFunction.appendChild(div);
 };
+function drawForecast(containingFunction, days = 3) {
+    const forecastContainer = document.createElement('div');
+    forecastContainer.id = 'forecast';
+    for (let i = 0; i < days; i++) {
+        const day = document.createElement('div');
+        day.id = `day-${i}`;
+        const icon = document.createElement('img');
+        icon.id = `forecast-icon-${i}`;
+        icon.src = ''
+        const date = document.createElement('div');
+        date.id = `${i}-date`;
+        const temp = document.createElement('div');
+        temp.id = `${i}-temp`;
+        const precipitation = document.createElement('div');
+        precipitation.id = `${i}-precipitation`
+        const humidity = document.createElement('div');
+        humidity.id = `${i}-humidity`;
+        day.appendChild(icon);
+        day.appendChild(date);
+        day.appendChild(temp);
+        day.appendChild(precipitation)
+        day.appendChild(humidity)
 
+        forecastContainer.appendChild(day)
+    };
+
+
+    // Appening
+    containingFunction.appendChild(forecastContainer);
+};
 //
 // City Info
 //
