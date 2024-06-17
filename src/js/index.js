@@ -36,57 +36,6 @@ async function createDataObject(fetchedData) {
             time_epoch: data.location.localtime_epoch,
         },
         forecast: [
-            {
-                date: data.forecast.forecastday[0].date,
-                condition: {
-                    code: data.forecast.forecastday[0].day.condition.code,
-                    icon: data.forecast.forecastday[0].day.condition.icon,
-                    text: data.forecast.forecastday[0].day.condition.text,
-                },
-                metricMax: data.forecast.forecastday[0].day.maxtemp_c,
-                metricMin: data.forecast.forecastday[0].day.mintemp_c,
-                imperialMax: data.forecast.forecastday[0].day.maxtemp_f,
-                imperialMin: data.forecast.forecastday[0].day.mintemp_f,
-                metricMaxwind: data.forecast.forecastday[0].day.maxwind_kph,
-                imperialMaxwind: data.forecast.forecastday[0].day.maxwind_mph,
-                metricPrecipitation: data.forecast.forecastday[0].day.totalprecip_mm,
-                imperialPrecipitation: data.forecast.forecastday[0].day.totalprecip_in,
-                humidity: data.forecast.forecastday[0].day.avghumidity,
-            },
-            {
-                date: data.forecast.forecastday[1].date,
-                condition: {
-                    code: data.forecast.forecastday[1].day.condition.code,
-                    icon: data.forecast.forecastday[1].day.condition.icon,
-                    text: data.forecast.forecastday[1].day.condition.text,
-                },
-                metricMax: data.forecast.forecastday[1].day.maxtemp_c,
-                metricMin: data.forecast.forecastday[1].day.mintemp_c,
-                imperialMax: data.forecast.forecastday[1].day.maxtemp_f,
-                imperialMin: data.forecast.forecastday[1].day.mintemp_f,
-                metricMaxwind: data.forecast.forecastday[1].day.maxwind_kph,
-                imperialMaxwind: data.forecast.forecastday[1].day.maxwind_mph,
-                metricPrecipitation: data.forecast.forecastday[1].day.totalprecip_mm,
-                imperialPrecipitation: data.forecast.forecastday[1].day.totalprecip_in,
-                humidity: data.forecast.forecastday[1].day.avghumidity,
-            },
-            {
-                date: data.forecast.forecastday[2].date,
-                condition: {
-                    code: data.forecast.forecastday[2].day.condition.code,
-                    icon: data.forecast.forecastday[2].day.condition.icon,
-                    text: data.forecast.forecastday[2].day.condition.text,
-                },
-                metricMax: data.forecast.forecastday[2].day.maxtemp_c,
-                metricMin: data.forecast.forecastday[2].day.mintemp_c,
-                imperialMax: data.forecast.forecastday[2].day.maxtemp_f,
-                imperialMin: data.forecast.forecastday[2].day.mintemp_f,
-                metricMaxwind: data.forecast.forecastday[2].day.maxwind_kph,
-                imperialMaxwind: data.forecast.forecastday[2].day.maxwind_mph,
-                metricPrecipitation: data.forecast.forecastday[2].day.totalprecip_mm,
-                imperialPrecipitation: data.forecast.forecastday[2].day.totalprecip_in,
-                humidity: data.forecast.forecastday[2].day.avghumidity,
-            },
         ],
         condition: {
             code: data.current.condition.code,
@@ -116,6 +65,26 @@ async function createDataObject(fetchedData) {
         uv: data.current.uv,
         lastUpdate: data.current.last_updated,
     };
+    for (let i = 0; i < 3; i++) {
+        const forecastDay = {
+            date: data.forecast.forecastday[i].date,
+            condition: {
+                code: data.forecast.forecastday[i].day.condition.code,
+                icon: data.forecast.forecastday[i].day.condition.icon,
+                text: data.forecast.forecastday[i].day.condition.text,
+            },
+            metricMax: data.forecast.forecastday[i].day.maxtemp_c,
+            metricMin: data.forecast.forecastday[i].day.mintemp_c,
+            imperialMax: data.forecast.forecastday[i].day.maxtemp_f,
+            imperialMin: data.forecast.forecastday[i].day.mintemp_f,
+            metricMaxwind: data.forecast.forecastday[i].day.maxwind_kph,
+            imperialMaxwind: data.forecast.forecastday[i].day.maxwind_mph,
+            metricPrecipitation: data.forecast.forecastday[i].day.totalprecip_mm,
+            imperialPrecipitation: data.forecast.forecastday[i].day.totalprecip_in,
+            humidity: data.forecast.forecastday[i].day.avghumidity,
+        }
+        dataObj.forecast.push(forecastDay)
+    }
     return dataObj;
 };
 let dataObj = createDataObject(fetchData(getLocation()));
