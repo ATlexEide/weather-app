@@ -34,7 +34,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'To do list',
             filename: 'index.html',
-            template: path.resolve(__dirname, 'src/index.html')
+            template: path.resolve(__dirname, 'src/index.html'),
         }),
     ],
 }
