@@ -1345,7 +1345,7 @@ const searchInput = document.getElementById('input-location');
 const getLocation = () => { if (searchInput.value) { return searchInput.value } else { return 'bergen' } };
 async function fetchData(location) {
     try {
-        const request = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=72f920ddfbf143c9ac1164854240606&q=${location}&days=3`, { type: 'cors' });
+        const request = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=72f920ddfbf143c9ac1164854240606&q=${location}&days=3`, { type: 'cors' });
         const response = await request.json();
         console.log(response)
         return response;
