@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     background-image: url('../images/backdrop.jpg');
     background-size: 100%;
+    background-repeat: no-repeat;
     margin: 0;
     height: 100vh;
 }
@@ -139,6 +140,7 @@ h1 {
 
 #graph {
     background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Pushkin_population_history.svg/400px-Pushkin_population_history.svg.png);
+    background-repeat: no-repeat;
     height: calc(100%/2);
     width: 100%;
 }
