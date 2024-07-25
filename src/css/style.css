@@ -14,9 +14,8 @@
 body {
     display: flex;
     flex-direction: column;
-    background-image: url('../images/backdrop.jpg');
+    background-color: white;
     background-size: 100%;
-    background-repeat: no-repeat;
     margin: 0;
     height: 100vh;
 }
