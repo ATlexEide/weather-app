@@ -21,7 +21,7 @@ export function drawHeader() {
     const header = document.createElement('header');
     // H1
     const h1 = document.createElement('h1');
-    h1.textContent = 'Weather App';
+    h1.textContent = 'Cloudsdale Weather Report';
 
     // Appending
     header.appendChild(h1);
