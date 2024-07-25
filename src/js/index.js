@@ -106,4 +106,3 @@ for (const option of options) {
         changeUnits(dataObj);
     });
 };
-submit.click()
