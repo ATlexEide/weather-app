@@ -1343,7 +1343,6 @@ for (const option of options) {
         (0,_updateDetails_js__WEBPACK_IMPORTED_MODULE_2__.changeUnits)(dataObj);
     });
 };
-submit.click()
 
 })();
 
