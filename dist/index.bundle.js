@@ -16,20 +16,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
-
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../images/backdrop.jpg */ "./src/images/backdrop.jpg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `:root {
-    --location-input-height: 24px;
+    --location-input-height: 34px;
     --info-side-padding: 550px;
-    --background-color: rgb(111, 183, 247, 0.2);
+    --background-color: rgba(226, 219, 219, 0.2);
     --compass-size: 75px;
 }
 
@@ -42,19 +37,21 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
 body {
     display: flex;
     flex-direction: column;
-    background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     background-size: 100%;
-    background-repeat: no-repeat;
     margin: 0;
     height: 100vh;
 }
 
 header {
-    height: 94px;
-    width: 100vw;
-    font-size: 26px;
-    background-color: var(--background-color);
+    grid-column: 1 / -1;
+    grid-row: 1 /2;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 18px;
+    padding-left: 1rem;
+    background-color: #f9cdf4;
 
 }
 
@@ -66,28 +63,24 @@ h1 {
 }
 
 #main-container {
-    place-self: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 75px 2fr 1fr 1fr;
+    grid-template-columns: 150px 1fr 150px;
     width: 100vw;
     height: 100vh;
     background-color: var(--background-color);
 }
 
 #info-container {
-    display: flex;
-    align-items: center;
-    flex: 3 1 0;
-    width: 75%;
-    align-items: center;
-    /* padding: 0 var(--info-side-padding); */
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-column: 2 / 3;
+    grid-row: 2/3;
 }
 
-#info-container>* {
-    width: calc(100%/3);
-    height: 100%;
-}
 
 #weather-icon {
     width: 150px;
@@ -100,10 +93,12 @@ h1 {
 }
 
 #city-info {
+    grid-row: 1/2;
     display: flex;
-    height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
 }
 
 
@@ -116,7 +111,17 @@ h1 {
     margin-bottom: 4px;
 }
 
+#location-info {
+    width: 100%;
+}
+
+#time {
+    width: 100%;
+}
+
 #weather-conditions {
+    grid-row: 1 / 3;
+    grid-column: -2 / -1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -150,28 +155,29 @@ h1 {
 }
 
 #weather-info {
-    margin-left: auto;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    width: 45%;
-    height: 93%;
-    margin-right: 3%;
-    padding: 20px;
-    background-color: rgb(51, 48, 202, .2);
-    border-radius: 20px;
+    justify-content: center;
+    width: fit-content;
 }
+
 
 .weather-details {
-    font-size: 20px;
+    font-size: 38px;
 }
 
-#graph {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Pushkin_population_history.svg/400px-Pushkin_population_history.svg.png);
-    background-repeat: no-repeat;
-    height: calc(100%/2);
-    width: 100%;
+#forecast {
+    display: flex;
+    align-items: center;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+
+}
+
+#forecast>* {
+    margin-right: 3rem;
 }
 
 #day-0 {
@@ -180,16 +186,21 @@ h1 {
 }
 
 #input-container {
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+
+
+    width: fit-content;
     display: flex;
     flex-direction: column-reverse;
     flex: 1 1 0;
-    justify-content: center;
-    align-items: center;
-    padding: 0 var(--info-side-padding);
+    justify-self: center;
+    align-self: center;
 }
 
 #radio-container {
     display: flex;
+    justify-content: center;
 }
 
 #radio-celcius,
@@ -218,7 +229,7 @@ button {
     margin-left: 10px;
     border-radius: 15px;
     border: solid 1px;
-    width: 75px;
+    width: 90px;
 }
 
 footer {
@@ -233,19 +244,19 @@ footer {
 }
 
 #link-back {
-    color: rgb(176, 175, 241);
+    color: rgb(55, 55, 62);
 }
 
 
 #input-location {
     height: var(--location-input-height);
-    width: 150px;
+    width: 190px;
 }
 
 #submit-location {
     height: var(--location-input-height);
     aspect-ratio: 5/2;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,0BAA0B;IAC1B,2CAA2C;IAC3C,oBAAoB;AACxB;;AAEA;IACI,mJAAmJ;IACnJ,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,yDAA+C;IAC/C,uBAAuB;IACvB,qBAAqB;IACrB,4BAA4B;IAC5B,SAAS;IACT,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,eAAe;IACf,yCAAyC;;AAE7C;;AAEA;IACI,gBAAgB;IAChB,UAAU;IACV,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,YAAY;IACZ,aAAa;IACb,yCAAyC;AAC7C;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,WAAW;IACX,UAAU;IACV,mBAAmB;IACnB,yCAAyC;AAC7C;;AAEA;IACI,mBAAmB;IACnB,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,sBAAsB;IACtB,8BAA8B;AAClC;;;AAGA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,0BAA0B;IAC1B,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,0BAA0B;;AAE9B;;;AAGA;IACI,kBAAkB;IAClB,UAAU;IACV,0BAA0B;AAC9B;;AAEA;IACI,0BAA0B;IAC1B,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,sBAAsB;IACtB,kBAAkB;IAClB,8BAA8B;IAC9B,UAAU;IACV,WAAW;IACX,gBAAgB;IAChB,aAAa;IACb,sCAAsC;IACtC,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,wJAAwJ;IACxJ,4BAA4B;IAC5B,oBAAoB;IACpB,WAAW;AACf;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,WAAW;IACX,uBAAuB;IACvB,mBAAmB;IACnB,mCAAmC;AACvC;;AAEA;IACI,aAAa;AACjB;;AAEA;;IAEI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB,uBAAuB;IACvB,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,gBAAgB;IAChB,iBAAiB;IACjB,YAAY;IACZ,uCAAuC;;AAE3C;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,oCAAoC;IACpC,YAAY;AAChB;;AAEA;IACI,oCAAoC;IACpC,iBAAiB;AACrB","sourcesContent":[":root {\n    --location-input-height: 24px;\n    --info-side-padding: 550px;\n    --background-color: rgb(111, 183, 247, 0.2);\n    --compass-size: 75px;\n}\n\n* {\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n    margin: none;\n    padding: none;\n}\n\nbody {\n    display: flex;\n    flex-direction: column;\n    background-image: url('../images/backdrop.jpg');\n    background-color: white;\n    background-size: 100%;\n    background-repeat: no-repeat;\n    margin: 0;\n    height: 100vh;\n}\n\nheader {\n    height: 94px;\n    width: 100vw;\n    font-size: 26px;\n    background-color: var(--background-color);\n\n}\n\nh1 {\n    margin-top: 12px;\n    padding: 0;\n    color: black;\n    text-align: center;\n}\n\n#main-container {\n    place-self: center;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    width: 100vw;\n    height: 100vh;\n    background-color: var(--background-color);\n}\n\n#info-container {\n    display: flex;\n    align-items: center;\n    flex: 3 1 0;\n    width: 75%;\n    align-items: center;\n    /* padding: 0 var(--info-side-padding); */\n}\n\n#info-container>* {\n    width: calc(100%/3);\n    height: 100%;\n}\n\n#weather-icon {\n    width: 150px;\n}\n\n#condition-text {\n    margin-top: -20px;\n    margin-bottom: 20px;\n    font-size: 38px;\n}\n\n#city-info {\n    display: flex;\n    height: 100%;\n    flex-direction: column;\n    justify-content: space-between;\n}\n\n\n.city-details {\n    font-size: 58px;\n}\n\n#country {\n    font-size: 34px;\n    margin-bottom: 4px;\n}\n\n#weather-conditions {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: auto;\n}\n\n#compass-container {\n    aspect-ratio: 1;\n    width: var(--compass-size);\n    margin-bottom: auto;\n}\n\n#compass-body {\n    position: absolute;\n    opacity: .3;\n    width: var(--compass-size);\n\n}\n\n\n#wind-dir-icon {\n    position: relative;\n    z-index: 1;\n    width: var(--compass-size);\n}\n\n#compass-wind-dir-text {\n    width: var(--compass-size);\n    text-align: center;\n    font-size: 28px;\n}\n\n#weather-info {\n    margin-left: auto;\n    display: flex;\n    flex-direction: column;\n    align-items: start;\n    justify-content: space-between;\n    width: 45%;\n    height: 93%;\n    margin-right: 3%;\n    padding: 20px;\n    background-color: rgb(51, 48, 202, .2);\n    border-radius: 20px;\n}\n\n.weather-details {\n    font-size: 20px;\n}\n\n#graph {\n    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Pushkin_population_history.svg/400px-Pushkin_population_history.svg.png);\n    background-repeat: no-repeat;\n    height: calc(100%/2);\n    width: 100%;\n}\n\n#day-0 {\n    font-size: 20px;\n    font-weight: 500;\n}\n\n#input-container {\n    display: flex;\n    flex-direction: column-reverse;\n    flex: 1 1 0;\n    justify-content: center;\n    align-items: center;\n    padding: 0 var(--info-side-padding);\n}\n\n#radio-container {\n    display: flex;\n}\n\n#radio-celcius,\n#radio-fahrenheit {\n    display: flex;\n    flex-direction: column;\n    margin: 8px;\n}\n\n#ch-bar {\n    display: flex;\n    align-items: center;\n}\n\ninput {\n    border-radius: 25px;\n    border: 1px solid black;\n    padding: 0 10px;\n}\n\ninput::placeholder {\n    margin-left: 20px;\n}\n\nbutton {\n    margin-left: 10px;\n    border-radius: 15px;\n    border: solid 1px;\n    width: 75px;\n}\n\nfooter {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-top: auto;\n    padding-top: auto;\n    height: 2rem;\n    background-color: rgba(34, 65, 92, 0.4);\n\n}\n\n#link-back {\n    color: rgb(176, 175, 241);\n}\n\n\n#input-location {\n    height: var(--location-input-height);\n    width: 150px;\n}\n\n#submit-location {\n    height: var(--location-input-height);\n    aspect-ratio: 5/2;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,0BAA0B;IAC1B,4CAA4C;IAC5C,oBAAoB;AACxB;;AAEA;IACI,mJAAmJ;IACnJ,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,oCAAoC;IACpC,qBAAqB;IACrB,SAAS;IACT,aAAa;AACjB;;AAEA;IACI,mBAAmB;IACnB,cAAc;IACd,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,eAAe;IACf,kBAAkB;IAClB,yBAAyB;;AAE7B;;AAEA;IACI,gBAAgB;IAChB,UAAU;IACV,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,oCAAoC;IACpC,sCAAsC;IACtC,YAAY;IACZ,aAAa;IACb,yCAAyC;AAC7C;;AAEA;IACI,gBAAgB;IAChB,aAAa;IACb,kCAAkC;IAClC,uBAAuB;;IAEvB,kBAAkB;IAClB,aAAa;AACjB;;;AAGA;IACI,YAAY;AAChB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,mBAAmB;IACnB,iBAAiB;AACrB;;;AAGA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,kBAAkB;AACtB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,eAAe;IACf,oBAAoB;IACpB,aAAa;IACb,sBAAsB;IACtB,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,0BAA0B;IAC1B,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,0BAA0B;;AAE9B;;;AAGA;IACI,kBAAkB;IAClB,UAAU;IACV,0BAA0B;AAC9B;;AAEA;IACI,0BAA0B;IAC1B,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,kBAAkB;AACtB;;;AAGA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,kBAAkB;;AAEtB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,kBAAkB;;;IAGlB,kBAAkB;IAClB,aAAa;IACb,8BAA8B;IAC9B,WAAW;IACX,oBAAoB;IACpB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,uBAAuB;AAC3B;;AAEA;;IAEI,aAAa;IACb,sBAAsB;IACtB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB,uBAAuB;IACvB,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,gBAAgB;IAChB,iBAAiB;IACjB,YAAY;IACZ,uCAAuC;;AAE3C;;AAEA;IACI,sBAAsB;AAC1B;;;AAGA;IACI,oCAAoC;IACpC,YAAY;AAChB;;AAEA;IACI,oCAAoC;IACpC,iBAAiB;AACrB","sourcesContent":[":root {\n    --location-input-height: 34px;\n    --info-side-padding: 550px;\n    --background-color: rgba(226, 219, 219, 0.2);\n    --compass-size: 75px;\n}\n\n* {\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n    margin: none;\n    padding: none;\n}\n\nbody {\n    display: flex;\n    flex-direction: column;\n    background-color: rgb(255, 255, 255);\n    background-size: 100%;\n    margin: 0;\n    height: 100vh;\n}\n\nheader {\n    grid-column: 1 / -1;\n    grid-row: 1 /2;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-size: 18px;\n    padding-left: 1rem;\n    background-color: #f9cdf4;\n\n}\n\nh1 {\n    margin-top: 12px;\n    padding: 0;\n    color: black;\n    text-align: center;\n}\n\n#main-container {\n    display: grid;\n    grid-template-rows: 75px 2fr 1fr 1fr;\n    grid-template-columns: 150px 1fr 150px;\n    width: 100vw;\n    height: 100vh;\n    background-color: var(--background-color);\n}\n\n#info-container {\n    margin-top: auto;\n    display: grid;\n    grid-template-columns: 1fr 1fr 1fr;\n    grid-template-rows: 1fr;\n\n    grid-column: 2 / 3;\n    grid-row: 2/3;\n}\n\n\n#weather-icon {\n    width: 150px;\n}\n\n#condition-text {\n    margin-top: -20px;\n    margin-bottom: 20px;\n    font-size: 38px;\n}\n\n#city-info {\n    grid-row: 1/2;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    text-align: start;\n}\n\n\n.city-details {\n    font-size: 58px;\n}\n\n#country {\n    font-size: 34px;\n    margin-bottom: 4px;\n}\n\n#location-info {\n    width: 100%;\n}\n\n#time {\n    width: 100%;\n}\n\n#weather-conditions {\n    grid-row: 1 / 3;\n    grid-column: -2 / -1;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    margin-bottom: auto;\n}\n\n#compass-container {\n    aspect-ratio: 1;\n    width: var(--compass-size);\n    margin-bottom: auto;\n}\n\n#compass-body {\n    position: absolute;\n    opacity: .3;\n    width: var(--compass-size);\n\n}\n\n\n#wind-dir-icon {\n    position: relative;\n    z-index: 1;\n    width: var(--compass-size);\n}\n\n#compass-wind-dir-text {\n    width: var(--compass-size);\n    text-align: center;\n    font-size: 28px;\n}\n\n#weather-info {\n    grid-row: 1 / 2;\n    grid-column: 2 / 3;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    width: fit-content;\n}\n\n\n.weather-details {\n    font-size: 38px;\n}\n\n#forecast {\n    display: flex;\n    align-items: center;\n    grid-row: 3 / 4;\n    grid-column: 2 / 3;\n\n}\n\n#forecast>* {\n    margin-right: 3rem;\n}\n\n#day-0 {\n    font-size: 20px;\n    font-weight: 500;\n}\n\n#input-container {\n    grid-row: 4 / 5;\n    grid-column: 2 / 3;\n\n\n    width: fit-content;\n    display: flex;\n    flex-direction: column-reverse;\n    flex: 1 1 0;\n    justify-self: center;\n    align-self: center;\n}\n\n#radio-container {\n    display: flex;\n    justify-content: center;\n}\n\n#radio-celcius,\n#radio-fahrenheit {\n    display: flex;\n    flex-direction: column;\n    margin: 8px;\n}\n\n#ch-bar {\n    display: flex;\n    align-items: center;\n}\n\ninput {\n    border-radius: 25px;\n    border: 1px solid black;\n    padding: 0 10px;\n}\n\ninput::placeholder {\n    margin-left: 20px;\n}\n\nbutton {\n    margin-left: 10px;\n    border-radius: 15px;\n    border: solid 1px;\n    width: 90px;\n}\n\nfooter {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-top: auto;\n    padding-top: auto;\n    height: 2rem;\n    background-color: rgba(34, 65, 92, 0.4);\n\n}\n\n#link-back {\n    color: rgb(55, 55, 62);\n}\n\n\n#input-location {\n    height: var(--location-input-height);\n    width: 190px;\n}\n\n#submit-location {\n    height: var(--location-input-height);\n    aspect-ratio: 5/2;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -342,41 +353,6 @@ module.exports = function (cssWithMappingToString) {
     }
   };
   return list;
-};
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
-/*!********************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
-  \********************************************************/
-/***/ ((module) => {
-
-
-
-module.exports = function (url, options) {
-  if (!options) {
-    options = {};
-  }
-  if (!url) {
-    return url;
-  }
-  url = String(url.__esModule ? url.default : url);
-
-  // If url is already wrapped in quotes, remove them
-  if (/^['"].*['"]$/.test(url)) {
-    url = url.slice(1, -1);
-  }
-  if (options.hash) {
-    url += options.hash;
-  }
-
-  // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
-  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
-    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
-  }
-  return url;
 };
 
 /***/ }),
@@ -737,7 +713,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   body: () => (/* binding */ body),
 /* harmony export */   drawFooter: () => (/* binding */ drawFooter),
-/* harmony export */   drawHeader: () => (/* binding */ drawHeader),
 /* harmony export */   drawMainContainer: () => (/* binding */ drawMainContainer)
 /* harmony export */ });
 // const compass = 'https://i.imgur.com/SH5AKLq.png';
@@ -758,27 +733,26 @@ const placeholderText = 'placeholder';
 //
 // Header
 //
-function drawHeader() {
-    // Header
-    const header = document.createElement('header');
-    // H1
-    const h1 = document.createElement('h1');
-    h1.textContent = 'Weather App';
 
-    // Appending
-    header.appendChild(h1);
-    body.appendChild(header);
-};
 
 //
 // Main container
 //
 function drawMainContainer(data) {
+    const header = document.createElement('header');
+    // H1
+    const h1 = document.createElement('h1');
+    h1.textContent = 'Cloudsdale Weather Report';
+
+    // Appending
+    header.appendChild(h1);
     // Container
     const div = document.createElement('div');
     div.id = 'main-container';
+    div.appendChild(header);
     drawInfoContainer(div, data);
     drawInputForm(div);
+    drawForecast(div)
 
     // Append
     body.append(div);
@@ -881,9 +855,38 @@ function drawInfoContainer(containingFunction, data) {
     // Info container
     const div = document.createElement('div');
     div.id = 'info-container';
+    const weatherConditions = document.createElement('div');
+    weatherConditions.id = 'weather-conditions';
+    const weatherIcon = document.createElement('img');
+    weatherIcon.id = 'weather-icon';
+    weatherIcon.setAttribute('src', '//cdn.weatherapi.com/weather/64x64/day/113.png');
+
+    const conditionText = document.createElement('span');
+    conditionText.id = 'condition-text';
+    conditionText.textContent = 'Sunny';
+
+    const compassContainer = document.createElement('div');
+    compassContainer.id = 'compass-container';
+    const compassBody = document.createElement('img');
+    compassBody.id = 'compass-body';
+    compassBody.src = 'https://i.imgur.com/SH5AKLq.png';
+    const compassWindDirIcon = document.createElement('img');
+    compassWindDirIcon.id = 'wind-dir-icon'
+    compassWindDirIcon.src = 'https://i.imgur.com/ID05YeQ.png';
+    const compassWindDirText = document.createElement('div');
+    compassWindDirText.id = 'compass-wind-dir-text';
+    compassWindDirText.textContent = 'N';
+
+    compassContainer.appendChild(compassBody);
+    compassContainer.appendChild(compassWindDirIcon)
+    compassContainer.appendChild(compassWindDirText)
+
+    weatherConditions.appendChild(weatherIcon)
+    weatherConditions.appendChild(conditionText)
+    weatherConditions.appendChild(compassContainer)
     drawLocationInfo(div, data);
     drawWeatherInfo(div, data);
-    drawForecast(div);
+    div.appendChild(weatherConditions)
     containingFunction.appendChild(div);
 };
 function drawForecast(containingFunction, days = 3) {
@@ -913,7 +916,7 @@ function drawForecast(containingFunction, days = 3) {
     };
 
 
-    // Appening
+    // Appending
     containingFunction.appendChild(forecastContainer);
 };
 //
@@ -922,9 +925,8 @@ function drawForecast(containingFunction, days = 3) {
 function drawLocationInfo(containingFunction, data) {
     const div = document.createElement('div');
     div.id = 'city-info';
-
-    drawLocationDetails(div, data);
     containingFunction.appendChild(div);
+    drawLocationDetails(div, data)
 };
 
 //
@@ -932,34 +934,18 @@ function drawLocationInfo(containingFunction, data) {
 //
 function drawLocationDetails(containingFunction, data) {
     // Container
-    const weatherConditions = document.createElement('div');
-    weatherConditions.id = 'weather-conditions';
+
 
     const locationInfo = document.createElement('div');
     locationInfo.id = 'location-info';
 
-    const weatherIcon = document.createElement('img');
-    weatherIcon.id = 'weather-icon';
-    weatherIcon.setAttribute('src', '//cdn.weatherapi.com/weather/64x64/day/113.png');
-
-
-    const compassContainer = document.createElement('div');
-    compassContainer.id = 'compass-container';
-    const compassBody = document.createElement('img');
-    compassBody.id = 'compass-body';
-    compassBody.src = 'https://i.imgur.com/SH5AKLq.png';
-    const compassWindDirIcon = document.createElement('img');
-    compassWindDirIcon.id = 'wind-dir-icon'
-    compassWindDirIcon.src = 'https://i.imgur.com/ID05YeQ.png';
-    const compassWindDirText = document.createElement('div');
-    compassWindDirText.id = 'compass-wind-dir-text';
-    compassWindDirText.textContent = 'N';
 
 
 
-    const conditionText = document.createElement('span');
-    conditionText.id = 'condition-text';
-    conditionText.textContent = 'Sunny';
+
+
+
+
     const city = document.createElement('div');
     city.setAttribute('class', 'city-details');
     city.id = 'city';
@@ -972,20 +958,13 @@ function drawLocationDetails(containingFunction, data) {
     time.id = 'time';
     time.textContent = '';
 
-    // Appending
-    weatherConditions.appendChild(weatherIcon)
-    weatherConditions.appendChild(conditionText)
-    weatherConditions.appendChild(compassContainer)
     //
-    compassContainer.appendChild(compassBody);
-    compassContainer.appendChild(compassWindDirIcon)
-    compassContainer.appendChild(compassWindDirText)
+
     //
     //
     locationInfo.appendChild(city);
     locationInfo.appendChild(country);
     //
-    containingFunction.appendChild(weatherConditions);
     containingFunction.appendChild(locationInfo);
     containingFunction.appendChild(time);
 };
@@ -1171,16 +1150,6 @@ async function changeUnits(dataObj) {
     };
 };
 
-/***/ }),
-
-/***/ "./src/images/backdrop.jpg":
-/*!*********************************!*\
-  !*** ./src/images/backdrop.jpg ***!
-  \*********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "a6656b6e0b37d25f3177.jpg";
-
 /***/ })
 
 /******/ 	});
@@ -1209,9 +1178,6 @@ module.exports = __webpack_require__.p + "a6656b6e0b37d25f3177.jpg";
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -1237,18 +1203,6 @@ module.exports = __webpack_require__.p + "a6656b6e0b37d25f3177.jpg";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -1263,55 +1217,6 @@ module.exports = __webpack_require__.p + "a6656b6e0b37d25f3177.jpg";
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"index": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		// no on chunks loaded
-/******/ 		
-/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */
@@ -1338,7 +1243,6 @@ __webpack_require__.r(__webpack_exports__);
 
 // /////////////////////////
 (function display() {
-    (0,_dom_js__WEBPACK_IMPORTED_MODULE_1__.drawHeader)();
     (0,_dom_js__WEBPACK_IMPORTED_MODULE_1__.drawMainContainer)();
     (0,_dom_js__WEBPACK_IMPORTED_MODULE_1__.drawFooter)();
 }
@@ -1430,7 +1334,7 @@ submit.addEventListener('click', async (e) => {
     e.preventDefault()
     updateDataObj(getLocation());
     (0,_updateDetails_js__WEBPACK_IMPORTED_MODULE_2__.printData)(dataObj);
-    searchInput.value = '';
+    searchInput.value = 'Bergen';
 });
 
 const options = document.querySelectorAll('input[type=radio]');
@@ -1439,6 +1343,8 @@ for (const option of options) {
         (0,_updateDetails_js__WEBPACK_IMPORTED_MODULE_2__.changeUnits)(dataObj);
     });
 };
+submit.click()
+
 })();
 
 /******/ })()
