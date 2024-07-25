@@ -6,7 +6,6 @@ import { printData, changeUnits } from './updateDetails.js';
 
 // /////////////////////////
 (function display() {
-    drawHeader();
     drawMainContainer();
     drawFooter();
 }
@@ -98,7 +97,7 @@ submit.addEventListener('click', async (e) => {
     e.preventDefault()
     updateDataObj(getLocation());
     printData(dataObj);
-    searchInput.value = '';
+    searchInput.value = 'Bergen';
 });
 
 const options = document.querySelectorAll('input[type=radio]');
@@ -107,3 +106,4 @@ for (const option of options) {
         changeUnits(dataObj);
     });
 };
+submit.click()

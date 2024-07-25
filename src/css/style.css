@@ -1,7 +1,7 @@
 :root {
-    --location-input-height: 24px;
+    --location-input-height: 34px;
     --info-side-padding: 550px;
-    --background-color: rgb(111, 183, 247, 0.2);
+    --background-color: rgba(226, 219, 219, 0.2);
     --compass-size: 75px;
 }
 
@@ -14,17 +14,21 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     background-size: 100%;
     margin: 0;
     height: 100vh;
 }
 
 header {
-    height: 94px;
-    width: 100vw;
+    grid-column: 1 / -1;
+    grid-row: 1 /2;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     font-size: 18px;
-    background-color: var(--background-color);
+    padding-left: 1rem;
+    background-color: #f9cdf4;
 
 }
 
@@ -37,25 +41,23 @@ h1 {
 
 #main-container {
     display: grid;
-    grid-template-rows: 2fr 1fr 120px;
+    grid-template-rows: 75px 2fr 1fr 1fr;
+    grid-template-columns: 150px 1fr 150px;
     width: 100vw;
     height: 100vh;
     background-color: var(--background-color);
 }
 
 #info-container {
-    display: flex;
-    align-items: center;
-    flex: 3 1 0;
-    width: 75%;
-    align-items: center;
-    /* padding: 0 var(--info-side-padding); */
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    grid-column: 2 / 3;
+    grid-row: 2/3;
 }
 
-#info-container>* {
-    width: 100%;
-    height: 100%;
-}
 
 #weather-icon {
     width: 150px;
@@ -68,10 +70,12 @@ h1 {
 }
 
 #city-info {
+    grid-row: 1/2;
     display: flex;
-    height: 100%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
 }
 
 
@@ -84,7 +88,17 @@ h1 {
     margin-bottom: 4px;
 }
 
+#location-info {
+    width: 100%;
+}
+
+#time {
+    width: 100%;
+}
+
 #weather-conditions {
+    grid-row: 1 / 3;
+    grid-column: -2 / -1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,29 +132,30 @@ h1 {
 }
 
 #weather-info {
-    margin-left: auto;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: space-between;
-    width: 45%;
-    height: 93%;
-    margin-right: 3%;
-    padding: 20px;
-    background-color: rgb(51, 48, 202, .2);
-    border-radius: 20px;
+    justify-content: center;
+    width: fit-content;
 }
+
 
 .weather-details {
-    font-size: 20px;
+    font-size: 38px;
 }
 
-/* #graph {
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Pushkin_population_history.svg/400px-Pushkin_population_history.svg.png);
-    background-repeat: no-repeat;
-    height: calc(100%/2);
-    width: 100%;
-} */
+#forecast {
+    display: flex;
+    align-items: center;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+
+}
+
+#forecast>* {
+    margin-right: 3rem;
+}
 
 #day-0 {
     font-size: 20px;
@@ -148,7 +163,9 @@ h1 {
 }
 
 #input-container {
-    grid-row: 3 / 4;
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+
 
     width: fit-content;
     display: flex;
@@ -189,7 +206,7 @@ button {
     margin-left: 10px;
     border-radius: 15px;
     border: solid 1px;
-    width: 75px;
+    width: 90px;
 }
 
 footer {
@@ -204,13 +221,13 @@ footer {
 }
 
 #link-back {
-    color: rgb(176, 175, 241);
+    color: rgb(55, 55, 62);
 }
 
 
 #input-location {
     height: var(--location-input-height);
-    width: 150px;
+    width: 190px;
 }
 
 #submit-location {

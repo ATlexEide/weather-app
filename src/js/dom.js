@@ -16,8 +16,12 @@ const placeholderText = 'placeholder';
 //
 // Header
 //
-export function drawHeader() {
-    // Header
+
+
+//
+// Main container
+//
+export function drawMainContainer(data) {
     const header = document.createElement('header');
     // H1
     const h1 = document.createElement('h1');
@@ -25,18 +29,13 @@ export function drawHeader() {
 
     // Appending
     header.appendChild(h1);
-    body.appendChild(header);
-};
-
-//
-// Main container
-//
-export function drawMainContainer(data) {
     // Container
     const div = document.createElement('div');
     div.id = 'main-container';
+    div.appendChild(header);
     drawInfoContainer(div, data);
     drawInputForm(div);
+    drawForecast(div)
 
     // Append
     body.append(div);
@@ -139,9 +138,38 @@ function drawInfoContainer(containingFunction, data) {
     // Info container
     const div = document.createElement('div');
     div.id = 'info-container';
+    const weatherConditions = document.createElement('div');
+    weatherConditions.id = 'weather-conditions';
+    const weatherIcon = document.createElement('img');
+    weatherIcon.id = 'weather-icon';
+    weatherIcon.setAttribute('src', '//cdn.weatherapi.com/weather/64x64/day/113.png');
+
+    const conditionText = document.createElement('span');
+    conditionText.id = 'condition-text';
+    conditionText.textContent = 'Sunny';
+
+    const compassContainer = document.createElement('div');
+    compassContainer.id = 'compass-container';
+    const compassBody = document.createElement('img');
+    compassBody.id = 'compass-body';
+    compassBody.src = 'https://i.imgur.com/SH5AKLq.png';
+    const compassWindDirIcon = document.createElement('img');
+    compassWindDirIcon.id = 'wind-dir-icon'
+    compassWindDirIcon.src = 'https://i.imgur.com/ID05YeQ.png';
+    const compassWindDirText = document.createElement('div');
+    compassWindDirText.id = 'compass-wind-dir-text';
+    compassWindDirText.textContent = 'N';
+
+    compassContainer.appendChild(compassBody);
+    compassContainer.appendChild(compassWindDirIcon)
+    compassContainer.appendChild(compassWindDirText)
+
+    weatherConditions.appendChild(weatherIcon)
+    weatherConditions.appendChild(conditionText)
+    weatherConditions.appendChild(compassContainer)
     drawLocationInfo(div, data);
     drawWeatherInfo(div, data);
-    drawForecast(div);
+    div.appendChild(weatherConditions)
     containingFunction.appendChild(div);
 };
 function drawForecast(containingFunction, days = 3) {
@@ -171,7 +199,7 @@ function drawForecast(containingFunction, days = 3) {
     };
 
 
-    // Appening
+    // Appending
     containingFunction.appendChild(forecastContainer);
 };
 //
@@ -180,9 +208,8 @@ function drawForecast(containingFunction, days = 3) {
 function drawLocationInfo(containingFunction, data) {
     const div = document.createElement('div');
     div.id = 'city-info';
-
-    drawLocationDetails(div, data);
     containingFunction.appendChild(div);
+    drawLocationDetails(div, data)
 };
 
 //
@@ -190,34 +217,18 @@ function drawLocationInfo(containingFunction, data) {
 //
 function drawLocationDetails(containingFunction, data) {
     // Container
-    const weatherConditions = document.createElement('div');
-    weatherConditions.id = 'weather-conditions';
+
 
     const locationInfo = document.createElement('div');
     locationInfo.id = 'location-info';
 
-    const weatherIcon = document.createElement('img');
-    weatherIcon.id = 'weather-icon';
-    weatherIcon.setAttribute('src', '//cdn.weatherapi.com/weather/64x64/day/113.png');
-
-
-    const compassContainer = document.createElement('div');
-    compassContainer.id = 'compass-container';
-    const compassBody = document.createElement('img');
-    compassBody.id = 'compass-body';
-    compassBody.src = 'https://i.imgur.com/SH5AKLq.png';
-    const compassWindDirIcon = document.createElement('img');
-    compassWindDirIcon.id = 'wind-dir-icon'
-    compassWindDirIcon.src = 'https://i.imgur.com/ID05YeQ.png';
-    const compassWindDirText = document.createElement('div');
-    compassWindDirText.id = 'compass-wind-dir-text';
-    compassWindDirText.textContent = 'N';
 
 
 
-    const conditionText = document.createElement('span');
-    conditionText.id = 'condition-text';
-    conditionText.textContent = 'Sunny';
+
+
+
+
     const city = document.createElement('div');
     city.setAttribute('class', 'city-details');
     city.id = 'city';
@@ -230,20 +241,13 @@ function drawLocationDetails(containingFunction, data) {
     time.id = 'time';
     time.textContent = '';
 
-    // Appending
-    weatherConditions.appendChild(weatherIcon)
-    weatherConditions.appendChild(conditionText)
-    weatherConditions.appendChild(compassContainer)
     //
-    compassContainer.appendChild(compassBody);
-    compassContainer.appendChild(compassWindDirIcon)
-    compassContainer.appendChild(compassWindDirText)
+
     //
     //
     locationInfo.appendChild(city);
     locationInfo.appendChild(country);
     //
-    containingFunction.appendChild(weatherConditions);
     containingFunction.appendChild(locationInfo);
     containingFunction.appendChild(time);
 };
