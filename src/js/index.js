@@ -97,7 +97,7 @@ submit.addEventListener('click', async (e) => {
     e.preventDefault()
     updateDataObj(getLocation());
     printData(dataObj);
-    searchInput.value = 'Bergen';
+    searchInput.value = '';
 });
 
 const options = document.querySelectorAll('input[type=radio]');

@@ -1334,7 +1334,7 @@ submit.addEventListener('click', async (e) => {
     e.preventDefault()
     updateDataObj(getLocation());
     (0,_updateDetails_js__WEBPACK_IMPORTED_MODULE_2__.printData)(dataObj);
-    searchInput.value = 'Bergen';
+    searchInput.value = '';
 });
 
 const options = document.querySelectorAll('input[type=radio]');
